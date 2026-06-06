@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>6-Month Roadmap – Digital Marketing + Full Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #ef4444;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .app {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98));
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow:
+        0 40px 80px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(15,23,42,0.9);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+      border-right: 1px solid rgba(148,163,184,0.15);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #22c55e 0, #16a34a 35%, #047857 70%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: #e5fdf0;
+      box-shadow: 0 0 25px rgba(34,197,94,0.7);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      background: rgba(15,23,42,0.9);
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+
+    .tagline b {
+      color: var(--accent);
+    }
+
+    .nav-title {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 4px;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav button {
+      all: unset;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 0.18s ease;
+    }
+
+    .nav button span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav button small {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    .nav button.active {
+      background: rgba(34,197,94,0.14);
+      border-color: rgba(34,197,94,0.8);
+      color: var(--text);
+      box-shadow: 0 0 18px rgba(34,197,94,0.45);
+    }
+
+    .nav button:hover:not(.active) {
+      background: rgba(15,23,42,0.9);
+      border-color: rgba(148,163,184,0.35);
+      color: #e5e7eb;
+    }
+
+    .nav-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(34,197,94,0.8);
+    }
+
+    .nav-dot.secondary {
+      background: #38bdf8;
+      box-shadow: 0 0 10px rgba(56,189,248,0.8);
+    }
+
+    .nav-dot.orange {
+      background: #fb923c;
+      box-shadow: 0 0 10px rgba(251,146,60,0.8);
+    }
+
+    .nav-dot.purple {
+      background: #a855f7;
+      box-shadow: 0 0 10px rgba(168,85,247,0.8);
+    }
+
+    .progress-box {
+      margin-top: auto;
+      font-size: 11px;
+      color: var(--muted);
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid rgba(148,163,184,0.2);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+    }
+
+    .progress-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 5px;
+      border-radius: 999px;
+      background: #020617;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+      box-shadow: 0 0 12px rgba(34,197,94,0.7);
+      transition: width 0.6s ease;
+    }
+
+    .progress-text {
+      margin-top: 4px;
+      font-size: 11px;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 18px 18px 18px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      border-radius: 14px;
+      padding: 10px 14px;
+      background: radial-gradient(circle at top left, rgba(15,23,42,0.98), rgba(15,23,42,0.92));
+      border: 1px solid rgba(148,163,184,0.3);
+    }
+
+    .header-left h2 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .header-left p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+    }
+
+    .badge.green {
+      border-color: rgba(34,197,94,0.7);
+      background: rgba(22,163,74,0.16);
+      color: #bbf7d0;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .header-right b {
+      color: #e5e7eb;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .panel {
+      flex: 1.7;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.96), rgba(15,23,42,0.94));
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid rgba(148,163,184,0.25);
+      overflow: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #4b5563 #020617;
+    }
+
+    .panel::-webkit-scrollbar {
+      width: 6px;
+    }
+    .panel::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    .panel::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 999px;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      color: #e5e7eb;
+    }
+
+    .chip.primary {
+      border-color: rgba(34,197,94,0.7);
+      background: rgba(22,163,74,0.16);
+      color: #bbf7d0;
+    }
+
+    .section {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(55,65,81,0.8);
+    }
+
+    .section h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .section p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: rgba(15,23,42,0.9);
+      border-radius: 10px;
+      padding: 8px;
+      border: 1px solid rgba(31,41,55,0.9);
+      font-size: 12px;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 12px;
+    }
+
+    .card small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .card a {
+      color: #4ade80;
+      font-size: 11px;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(55,65,81,0.9);
+      color: #e5e7eb;
+    }
+
+    .pill.done {
+      border-color: rgba(34,197,94,0.8);
+      background: rgba(22,163,74,0.16);
+      color: #bbf7d0;
+    }
+
+    .pill.todo {
+      border-color: rgba(148,163,184,0.7);
+    }
+
+    .secondary-panel {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mini-panel {
+      background: rgba(15,23,42,0.95);
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid rgba(148,163,184,0.25);
+      font-size: 12px;
+    }
+
+    .mini-panel h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .mini-panel p {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 6px;
+      border-radius: 8px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(31,41,55,0.9);
+      font-size: 11px;
+    }
+
+    .list-item span:first-child {
+      color: #e5e7eb;
+    }
+
+    .list-item a {
+      font-size: 11px;
+      color: #4ade80;
+      text-decoration: none;
+    }
+
+    .list-item a:hover {
+      text-decoration: underline;
+    }
+
+    .kpi-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .kpi {
+      flex: 1;
+      background: rgba(15,23,42,0.9);
+      border-radius: 10px;
+      border: 1px solid rgba(31,41,55,0.9);
+      padding: 6px;
+      font-size: 11px;
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .kpi span {
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .hint {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .app {
+        flex-direction: column;
+        max-height: none;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .progress-box {
+        width: 100%;
+      }
+      .content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">DM</div>
+      <div class="brand-text">
+        <h1>6-Month Mastery</h1>
+        <span>Digital Marketing + Full Stack</span>
+      </div>
+    </div>
+
+    <div class="tagline">
+      11 PM – 2 AM, 6 days/week. <b>Goal:</b> SEO + Google Ads Expert first, then Full‑Stack Dev.
+    </div>
+
+    <div>
+      <div class="nav-title">Sections</div>
+      <div class="nav">
+        <button class="active" data-section="digital">
+          <span><span class="nav-dot"></span>Digital Marketing</span>
+          <small>Weeks 1–10</small>
+        </button>
+        <button data-section="fullstack">
+          <span><span class="nav-dot secondary"></span>Full Stack Dev</span>
+          <small>Weeks 11–24</small>
+        </button>
+        <button data-section="certs">
+          <span><span class="nav-dot orange"></span>Certificates</span>
+          <small>All free</small>
+        </button>
+        <button data-section="daily">
+          <span><span class="nav-dot purple"></span>Daily View</span>
+          <small>Today’s focus</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-label">
+        <span>Overall Progress</span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-bar"></div>
+      </div>
+      <div class="progress-text">
+        Completed modules: <b id="done-modules">0</b> / <b id="total-modules">0</b>
+      </div>
+      <div class="hint">
+        Click modules as <b>Done</b> in cards to update this.
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <div class="header-left">
+        <h2 id="section-title">Digital Marketing Roadmap</h2>
+        <p id="section-subtitle">
+          Start with SEO (2 weeks), then Google Ads, GA4/GTM, Email, Social & Integration.
+        </p>
+        <div class="badge-row">
+          <div class="badge green">SEO + Google Ads = Top Priority</div>
+          <div class="badge">Daily: 3 hours · 6 days/week</div>
+          <div class="badge">Timeline: ~6 months</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div>Current focus: <b id="current-focus">SEO – Week 1</b></div>
+        <div>Today: <span id="today-label">Manual selection</span></div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="panel" id="panel-main">
+        <!-- Filled dynamically by JS -->
+      </section>
+
+      <aside class="secondary-panel">
+        <div class="mini-panel" id="mini-summary">
+          <!-- Dynamic summary -->
+        </div>
+
+        <div class="mini-panel">
+          <h3>Key Links</h3>
+          <p>Primary course platforms you’ll use repeatedly.</p>
+          <div class="list">
+            <div class="list-item">
+              <span>Google Skillshop</span>
+              <a href="https://skillshop.withgoogle.com" target="_blank">Open</a>
+            </div>
+            <div class="list-item">
+              <span>Ahrefs Academy</span>
+              <a href="https://ahrefs.com/academy" target="_blank">Open</a>
+            </div>
+            <div class="list-item">
+              <span>Semrush Academy</span>
+              <a href="https://www.semrush.com/academy" target="_blank">Open</a>
+            </div>
+            <div class="list-item">
+              <span>HubSpot Academy</span>
+              <a href="https://academy.hubspot.com" target="_blank">Open</a>
+            </div>
+            <div class="list-item">
+              <span>freeCodeCamp</span>
+              <a href="https://www.freecodecamp.org/learn" target="_blank">Open</a>
+            </div>
+            <div class="list-item">
+              <span>Shopify Academy</span>
+              <a href="https://ochen.shopify.com" target="_blank">Open</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-panel">
+          <h3>Stats</h3>
+          <div class="kpi-row">
+            <div class="kpi">
+              <strong>Digital</strong>
+              <span>SEO, Ads, GA4, Email, Social</span>
+            </div>
+            <div class="kpi">
+              <strong>Full Stack</strong>
+              <span>HTML, CSS, JS, React, Next, Node</span>
+            </div>
+          </div>
+          <div class="hint">
+            Adjust this dashboard anytime: it’s just one HTML file on GitHub.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<script>
+  // --- DATA MODEL ---
+
+  const modules = [
+    // DIGITAL MARKETING (Weeks 1–10 approx)
+    {
+      id: "seo",
+      area: "digital",
+      title: "SEO – Weeks 1–2",
+      goal: "SEO expert level: basics, advanced, audits & competitor analysis.",
+      weeks: "Weeks 1–2",
+      hours: "~28 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "SEO Full Course 2026 – Simplilearn",
+        url: "https://www.youtube.com/watch?v=j7gXepN1nJI"
+      },
+      extras: [
+        {
+          label: "Ahrefs SEO Course & Certificate",
+          url: "https://ahrefs.com/academy/seo-course"
+        }
+      ],
+      bullets: [
+        "Week 1: SEO video chapters 1–15 + notes.",
+        "Week 2: Ahrefs course + 2 SEO audits + competitor gap analysis."
+      ]
+    },
+    {
+      id: "google-ads",
+      area: "digital",
+      title: "Google Ads – Weeks 3–4",
+      goal: "Full search campaigns, structure, bidding & optimization.",
+      weeks: "Weeks 3–4",
+      hours: "~30 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "Google Ads Full Course 2026 – Simplilearn",
+        url: "https://www.youtube.com/watch?v=c-JLDF6r1Y8"
+      },
+      extras: [
+        {
+          label: "Google Ads Search Certification (Skillshop)",
+          url: "https://skillshop.withgoogle.com/learn/courses/google-ads-search-certification"
+        }
+      ],
+      bullets: [
+        "Week 3: Full video + 1 dummy campaign.",
+        "Week 4: Optimization drills + Skillshop modules + final practice campaign."
+      ]
+    },
+    {
+      id: "ga4-gtm",
+      area: "digital",
+      title: "GA4 + GTM – Week 5",
+      goal: "Event tracking, conversions, e‑commerce tracking.",
+      weeks: "Week 5",
+      hours: "~20 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "GA4 Full Course – Simplilearn",
+        url: "https://www.youtube.com/watch?v=QmxKcVqJj8Q"
+      },
+      extras: [
+        {
+          label: "GA4 Certification (Skillshop)",
+          url: "https://skillshop.withgoogle.com/learn/courses/google-analytics-certification"
+        }
+      ],
+      bullets: [
+        "GA4 property setup, events, conversions.",
+        "GTM tags + one full e‑commerce tracking implementation."
+      ]
+    },
+    {
+      id: "email",
+      area: "digital",
+      title: "Email Marketing – Week 6",
+      goal: "Email funnels, segmentation, automation.",
+      weeks: "Week 6",
+      hours: "~8–10 hours",
+      priority: "Medium",
+      status: "todo",
+      mainCourse: {
+        label: "Email Marketing Course – HubSpot",
+        url: "https://academy.hubspot.com/courses/email-marketing"
+      },
+      extras: [
+        {
+          label: "Mailchimp (or similar) practice",
+          url: "https://mailchimp.com"
+        }
+      ],
+      bullets: [
+        "HubSpot course + notes.",
+        "Build welcome + nurture sequences + 3 ready templates."
+      ]
+    },
+    {
+      id: "social",
+      area: "digital",
+      title: "Social Media Marketing – Week 7",
+      goal: "Meta ads, content system & campaigns.",
+      weeks: "Week 7",
+      hours: "~10–12 hours",
+      priority: "Medium",
+      status: "todo",
+      mainCourse: {
+        label: "Social Media Marketing – HubSpot",
+        url: "https://academy.hubspot.com/courses/social-media-marketing"
+      },
+      extras: [
+        {
+          label: "Meta Ads Manager",
+          url: "https://www.facebook.com/business/ads"
+        }
+      ],
+      bullets: [
+        "HubSpot course + 1 FB/IG campaign plan.",
+        "Content calendar + creatives ideas for 30 days."
+      ]
+    },
+    {
+      id: "dm-integration",
+      area: "digital",
+      title: "Digital Integration + Clients – Weeks 8–10",
+      goal: "Combine SEO, Ads, Email, Social into real client offers.",
+      weeks: "Weeks 8–10",
+      hours: "~25–30 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "Digital Marketing Full Course 2026 – Simplilearn",
+        url: "https://www.youtube.com/watch?v=WG07nvvSsG0"
+      },
+      extras: [
+        {
+          label: "Semrush SEO Certification",
+          url: "https://www.semrush.com/academy/seo-certification/"
+        },
+        {
+          label: "HubSpot Digital Marketing Certification",
+          url: "https://academy.hubspot.com/"
+        }
+      ],
+      bullets: [
+        "Build 1 full strategy doc (SEO + Ads + Email + Social) for a niche.",
+        "Set up LinkedIn, Upwork & Fiverr profiles + outreach templates.",
+        "Prepare 40+ advanced interview Q&A & record at least 1 mock."
+      ]
+    },
+
+    // FULL STACK (Weeks 11–24 approx)
+    {
+      id: "html-css",
+      area: "fullstack",
+      title: "HTML + CSS – Week 11",
+      goal: "Solid responsive layouts & basic components.",
+      weeks: "Week 11",
+      hours: "~15–20 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "Responsive Web Design – freeCodeCamp",
+        url: "https://www.freecodecamp.org/learn/2022-responsice-web-development/"
+      },
+      extras: [],
+      bullets: [
+        "Complete main sections from the FCC course.",
+        "Build portfolio + 1 landing page and host via GitHub Pages."
+      ]
+    },
+    {
+      id: "js",
+      area: "fullstack",
+      title: "JavaScript – Weeks 12–13",
+      goal: "JS fundamentals + DOM + APIs with multiple projects.",
+      weeks: "Weeks 12–13",
+      hours: "~40–50 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "JavaScript Algorithms & Data Structures – freeCodeCamp",
+        url: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+      },
+      extras: [],
+      bullets: [
+        "Finish FCC JS sections.",
+        "Build To‑Do, Calculator, Weather App, and 1 mini e‑commerce front‑end."
+      ]
+    },
+    {
+      id: "react",
+      area: "fullstack",
+      title: "React – Week 14",
+      goal: "Components, props, state, hooks, small apps.",
+      weeks: "Week 14",
+      hours: "~20 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "React – freeCodeCamp",
+        url: "https://www.freecodecamp.org/learn/front-end-development-libraries/#react"
+      },
+      extras: [],
+      bullets: [
+        "Complete FCC React exercises.",
+        "Build 2–3 small SPAs (todo, product list, dashboard)."
+      ]
+    },
+    {
+      id: "nextjs",
+      area: "fullstack",
+      title: "Next.js + E‑commerce UI – Week 15",
+      goal: "File-based routing, pages, basic data fetching.",
+      weeks: "Week 15",
+      hours: "~15–18 hours",
+      priority: "Medium",
+      status: "todo",
+      mainCourse: {
+        label: "Next.js Full Course – freeCodeCamp YouTube",
+        url: "https://www.youtube.com/watch?v=T/vzm0KQ7cQ"
+      },
+      extras: [],
+      bullets: [
+        "Follow the full Next.js course.",
+        "Clone basic e‑commerce front‑end and deploy on Vercel."
+      ]
+    },
+    {
+      id: "node",
+      area: "fullstack",
+      title: "Node.js + APIs – Week 16",
+      goal: "REST APIs, Express, basic auth.",
+      weeks: "Week 16",
+      hours: "~20–24 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "Back End Development & APIs – freeCodeCamp",
+        url: "https://www.freecodecamp.org/learn/back-end-development-and-apis/"
+      },
+      extras: [],
+      bullets: [
+        "Complete core FCC Node/Express sections.",
+        "Build product + cart API with MongoDB."
+      ]
+    },
+    {
+      id: "db-integration",
+      area: "fullstack",
+      title: "DB + Full Integration – Week 17",
+      goal: "MongoDB + full stack wiring.",
+      weeks: "Week 17",
+      hours: "~15–18 hours",
+      priority: "Medium",
+      status: "todo",
+      mainCourse: {
+        label: "MongoDB Tutorial – freeCodeCamp YouTube",
+        url: "https://www.youtube.com/watch?v=-56x56Uthq4"
+      },
+      extras: [],
+      bullets: [
+        "Connect Next/React front‑end with Node + MongoDB backend.",
+        "Finish 1 complete e‑commerce stack (front + API + DB)."
+      ]
+    },
+    {
+      id: "fs-projects",
+      area: "fullstack",
+      title: "Full‑Stack Projects – Weeks 18–20",
+      goal: "5–6 real full‑stack projects deployed.",
+      weeks: "Weeks 18–20",
+      hours: "~35–40 hours",
+      priority: "High",
+      status: "todo",
+      mainCourse: {
+        label: "5 Complete Ecommerce Websites – freeCodeCamp YouTube",
+        url: "https://www.youtube.com/watch?v=GT0_U7Sz8Uc"
+      },
+      extras: [],
+      bullets: [
+        "Build 3–5 guided projects from the course.",
+        "Polish code, add env configs & deploy (Vercel/Render)."
+      ]
+    },
+    {
+      id: "shopify-final",
+      area: "fullstack",
+      title: "Shopify + Final Polish – Weeks 21–24",
+      goal: "Shopify store + portfolio + interviews/clients.",
+      weeks: "Weeks 21–24",
+      hours: "~30+ hours",
+      priority: "Medium",
+      status: "todo",
+      mainCourse: {
+        label: "Shopify Academy + Your Own Store",
+        url: "https://ochen.shopify.com"
+      },
+      extras: [
+        {
+          label: "freeCodeCamp Full-Stack Dev Cert",
+          url: "https://www.freecodecamp.org/learn/full-stack-developer-v9/"
+        }
+      ],
+      bullets: [
+        "Build & launch at least 1 Shopify store.",
+        "Finalize portfolio, GitHub, case studies & start client outreach + job applications."
+      ]
+    }
+  ];
+
+  const certificates = [
+    { name: "Ahrefs SEO Certificate", platform: "Ahrefs Academy", url: "https://ahrefs.com/academy" },
+    { name: "Semrush SEO Certificate", platform: "Semrush Academy", url: "https://www.semrush.com/academy/seo-certification/" },
+    { name: "Google Ads Search Certification", platform: "Google Skillshop", url: "https://skillshop.withgoogle.com/learn/courses/google-ads-search-certification" },
+    { name: "Google Analytics Certification (GA4)", platform: "Google Skillshop", url: "https://skillshop.withgoogle.com/learn/courses/google-analytics-certification" },
+    { name: "HubSpot Email Marketing", platform: "HubSpot Academy", url: "https://academy.hubspot.com/courses/email-marketing" },
+    { name: "HubSpot Social Media Marketing", platform: "HubSpot Academy", url: "https://academy.hubspot.com/courses/social-media-marketing" },
+    { name: "HubSpot Digital Marketing", platform: "HubSpot Academy", url: "https://academy.hubspot.com" },
+    { name: "freeCodeCamp Responsive Web Design", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/2022-responsice-web-development/" },
+    { name: "freeCodeCamp JavaScript Algorithms & Data Structures", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" },
+    { name: "freeCodeCamp React", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/front-end-development-libraries/#react" },
+    { name: "freeCodeCamp Back End Development & APIs", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/back-end-development-and-apis/" },
+    { name: "freeCodeCamp Full-Stack Developer", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/full-stack-developer-v9/" },
+    { name: "Shopify Certification", platform: "Shopify Academy", url: "https://ochen.shopify.com" }
+  ];
+
+  // For the “Daily View” I’ll just show week-by-week summary (you can extend this later).
+  const dailySummary = [
+    { label: "Weeks 1–2", focus: "SEO: video + audits", area: "Digital" },
+    { label: "Weeks 3–4", focus: "Google Ads: setup + optimization", area: "Digital" },
+    { label: "Week 5", focus: "GA4 + GTM tracking", area: "Digital" },
+    { label: "Weeks 6–7", focus: "Email + Social campaigns", area: "Digital" },
+    { label: "Weeks 8–10", focus: "Integration + interviews + client setup", area: "Digital" },
+    { label: "Week 11", focus: "HTML + CSS layouts", area: "Full Stack" },
+    { label: "Weeks 12–13", focus: "JavaScript deep practice", area: "Full Stack" },
+    { label: "Week 14", focus: "React apps", area: "Full Stack" },
+    { label: "Week 15", focus: "Next.js + e‑commerce UI", area: "Full Stack" },
+    { label: "Week 16", focus: "Node.js APIs", area: "Full Stack" },
+    { label: "Week 17", focus: "MongoDB + integration", area: "Full Stack" },
+    { label: "Weeks 18–20", focus: "Full‑stack projects & deployments", area: "Full Stack" },
+    { label: "Weeks 21–24", focus: "Shopify + polish + clients/jobs", area: "Full Stack" }
+  ];
+
+  // --- RENDER FUNCTIONS ---
+
+  const mainPanel = document.getElementById("panel-main");
+  const sectionTitle = document.getElementById("section-title");
+  const sectionSubtitle = document.getElementById("section-subtitle");
+  const currentFocus = document.getElementById("current-focus");
+  const miniSummary = document.getElementById("mini-summary");
+  const progressBar = document.getElementById("progress-bar");
+  const progressPercent = document.getElementById("progress-percent");
+  const doneModulesEl = document.getElementById("done-modules");
+  const totalModulesEl = document.getElementById("total-modules");
+
+  function renderSection(section) {
+    if (section === "digital") renderDigital();
+    else if (section === "fullstack") renderFullstack();
+    else if (section === "certs") renderCerts();
+    else if (section === "daily") renderDaily();
+
+    updateProgress();
+  }
+
+  function renderDigital() {
+    sectionTitle.textContent = "Digital Marketing Roadmap";
+    sectionSubtitle.textContent =
+      "First priority: SEO + Google Ads (2 + 4 weeks), then GA4/GTM, Email, Social, integration, and clients.";
+    currentFocus.textContent = "SEO – Weeks 1–2";
+
+    const digitalModules = modules.filter(m => m.area === "digital");
+
+    mainPanel.innerHTML = `
+      <div class="panel-title">
+        <span>Digital Marketing (Weeks 1–10)</span>
+        <span style="font-size:11px;color:#9ca3af;">${digitalModules.length} modules</span>
+      </div>
+      <p class="panel-subtitle">
+        Work through each module in order. Core goal: be job‑ready & client‑ready in SEO, Google Ads, GA4/GTM, Email & Social.
+      </p>
+    `;
+
+    const section = document.createElement("div");
+    section.className = "section";
+    section.innerHTML = `
+      <h3>Modules</h3>
+      <p>Click a module’s status pill to mark it <b>Done</b> once you finish it.</p>
+      <div class="card-grid" id="card-grid-digital"></div>
+    `;
+    mainPanel.appendChild(section);
+
+    const grid = document.getElementById("card-grid-digital");
+    digitalModules.forEach(mod => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.dataset.moduleId = mod.id;
+      card.innerHTML = `
+        <strong>${mod.title}</strong>
+        <small>${mod.weeks} · ${mod.hours} · Priority: ${mod.priority}</small>
+        <div style="margin-bottom:4px;">${mod.goal}</div>
+        <a href="${mod.mainCourse.url}" target="_blank">${mod.mainCourse.label}</a>
+        ${mod.extras.length ? `
+          <div class="pill-row" style="margin-top:4px;">
+            ${mod.extras.map(ex => `<a href="${ex.url}" target="_blank" class="pill">${ex.label}</a>`).join("")}
+          </div>` : ""}
+        <ul style="margin-top:4px;padding-left:18px;">
+          ${mod.bullets.map(b => `<li style="margin-bottom:2px;">${b}</li>`).join("")}
+        </ul>
+        <div class="pill-row" style="margin-top:6px;">
+          <button class="pill ${mod.status === "done" ? "done" : "todo"}" data-toggle-status="${mod.id}">
+            ${mod.status === "done" ? "Done ✔" : "Mark as Done"}
+          </button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    miniSummary.innerHTML = `
+      <h3>Digital Overview</h3>
+      <p>Follow the order: SEO → Google Ads → GA4/GTM → Email → Social → Integration & Clients.</p>
+      <div class="list">
+        <div class="list-item">
+          <span>Weeks 1–2</span>
+          <span>SEO foundation + audits</span>
+        </div>
+        <div class="list-item">
+          <span>Weeks 3–4</span>
+          <span>Google Ads deep practice</span>
+        </div>
+        <div class="list-item">
+          <span>Weeks 5–7</span>
+          <span>GA4, Email, Social</span>
+        </div>
+        <div class="list-item">
+          <span>Weeks 8–10</span>
+          <span>Integration + jobs & clients</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFullstack() {
+    sectionTitle.textContent = "Full Stack Developer Roadmap";
+    sectionSubtitle.textContent =
+      "After Digital Marketing: master HTML, CSS, JavaScript, React, Next.js, Node, DB & full‑stack projects.";
+    currentFocus.textContent = "HTML + CSS – Week 11";
+
+    const fsModules = modules.filter(m => m.area === "fullstack");
+
+    mainPanel.innerHTML = `
+      <div class="panel-title">
+        <span>Full Stack Dev (Weeks 11–24)</span>
+        <span style="font-size:11px;color:#9ca3af;">${fsModules.length} modules</span>
+      </div>
+      <p class="panel-subtitle">
+        Target: build 5–10 real full‑stack projects (React/Next + Node + DB), deploy them, and earn freeCodeCamp + Shopify certificates.
+      </p>
+    `;
+
+    const section = document.createElement("div");
+    section.className = "section";
+    section.innerHTML = `
+      <h3>Modules</h3>
+      <p>Go in order; don’t skip JavaScript depth – it makes React & Node easier.</p>
+      <div class="card-grid" id="card-grid-fs"></div>
+    `;
+    mainPanel.appendChild(section);
+
+    const grid = document.getElementById("card-grid-fs");
+    fsModules.forEach(mod => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.dataset.moduleId = mod.id;
+      card.innerHTML = `
+        <strong>${mod.title}</strong>
+        <small>${mod.weeks} · ${mod.hours} · Priority: ${mod.priority}</small>
+        <div style="margin-bottom:4px;">${mod.goal}</div>
+        <a href="${mod.mainCourse.url}" target="_blank">${mod.mainCourse.label}</a>
+        ${mod.extras.length ? `
+          <div class="pill-row" style="margin-top:4px;">
+            ${mod.extras.map(ex => `<a href="${ex.url}" target="_blank" class="pill">${ex.label}</a>`).join("")}
+          </div>` : ""}
+        <ul style="margin-top:4px;padding-left:18px;">
+          ${mod.bullets.map(b => `<li style="margin-bottom:2px;">${b}</li>`).join("")}
+        </ul>
+        <div class="pill-row" style="margin-top:6px;">
+          <button class="pill ${mod.status === "done" ? "done" : "todo"}" data-toggle-status="${mod.id}">
+            ${mod.status === "done" ? "Done ✔" : "Mark as Done"}
+          </button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    miniSummary.innerHTML = `
+      <h3>Full Stack Overview</h3>
+      <p>HTML/CSS → JavaScript → React → Next → Node → DB → Projects → Shopify & polish.</p>
+      <div class="list">
+        <div class="list-item">
+          <span>Weeks 11–13</span>
+          <span>HTML/CSS + deep JavaScript</span>
+        </div>
+        <div class="list-item">
+          <span>Weeks 14–17</span>
+          <span>React, Next, Node, DB</span>
+        </div>
+        <div class="list-item">
+          <span>Weeks 18–20</span>
+          <span>Full‑stack projects + deploys</span>
+        </div>
+        <div class="list-item">
+          <span>Weeks 21–24</span>
+          <span>Shopify + portfolio + jobs/clients</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCerts() {
+    sectionTitle.textContent = "Certificates & Credentials";
+    sectionSubtitle.textContent =
+      "All main certificates you can earn for free during this roadmap.";
+    currentFocus.textContent = "Plan which cert to attempt each month.";
+
+    mainPanel.innerHTML = `
+      <div class="panel-title">
+        <span>Certificates (Digital + Full Stack)</span>
+        <span style="font-size:11px;color:#9ca3af;">${certificates.length} items</span>
+      </div>
+      <p class="panel-subtitle">
+        Track which certificates you’ve earned and which are next. Most are self‑paced, free, and online.
+      </p>
+      <div class="section">
+        <h3>All Certificates</h3>
+        <p>Mark them in your own notes once you pass; this dashboard just keeps the main links together.</p>
+        <div class="card-grid" id="cert-grid"></div>
+      </div>
+    `;
+
+    const grid = document.getElementById("cert-grid");
+    certificates.forEach(cert => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <strong>${cert.name}</strong>
+        <small>${cert.platform}</small>
+        <a href="${cert.url}" target="_blank">Open certificate page</a>
+      `;
+      grid.appendChild(card);
+    });
+
+    miniSummary.innerHTML = `
+      <h3>Certification Strategy</h3>
+      <p>Don’t rush all exams together – align them with your weekly focus.</p>
+      <ul style="font-size:11px;color:#9ca3af;margin-left:18px;margin-top:4px;">
+        <li>SEO week → Ahrefs + Semrush certificates.</li>
+        <li>Google Ads weeks → Google Ads Search certificate.</li>
+        <li>GA4 week → Google Analytics certificate.</li>
+        <li>After full stack core → freeCodeCamp full‑stack certificate.</li>
+        <li>Shopify week → Shopify certificate.</li>
+      </ul>
+    `;
+  }
+
+  function renderDaily() {
+    sectionTitle.textContent = "Weekly / Daily Focus View";
+    sectionSubtitle.textContent =
+      "Quick snapshot of what each week mainly focuses on. You can map each week to exact days in your own calendar.";
+    currentFocus.textContent = "Use this to remind yourself what this week is about.";
+
+    mainPanel.innerHTML = `
+      <div class="panel-title">
+        <span>Weekly Summary (Weeks 1–24)</span>
+        <span style="font-size:11px;color:#9ca3af;">High‑level daily direction</span>
+      </div>
+      <p class="panel-subtitle">
+        This view doesn’t force dates – it just shows the core focus per week so you can quickly see “what to do now”.
+      </p>
+      <div class="section">
+        <h3>Summary Timeline</h3>
+        <p>Rough order from SEO to full‑stack projects and Shopify.</p>
+        <div class="card-grid" id="daily-grid"></div>
+      </div>
+    `;
+
+    const grid = document.getElementById("daily-grid");
+    dailySummary.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <strong>${item.label}</strong>
+        <small>${item.area}</small>
+        <div>${item.focus}</div>
+      `;
+      grid.appendChild(card);
+    });
+
+    miniSummary.innerHTML = `
+      <h3>How to use this</h3>
+      <p>Each box = 1 week’s theme. Within that, you already have day‑by‑day tasks in your own notes.</p>
+      <ul style="font-size:11px;color:#9ca3af;margin-left:18px;margin-top:4px;">
+        <li>At 11 PM, check which week you’re in.</li>
+        <li>Open the main course link for that module.</li>
+        <li>Work 3 hours; mark the module as Done when its week is finished.</li>
+      </ul>
+    `;
+  }
+
+  function updateProgress() {
+    const total = modules.length;
+    const done = modules.filter(m => m.status === "done").length;
+    const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+
+    totalModulesEl.textContent = total;
+    doneModulesEl.textContent = done;
+    progressPercent.textContent = pct + "%";
+    progressBar.style.width = pct + "%";
+  }
+
+  // --- EVENT HANDLERS ---
+
+  document.querySelectorAll(".nav button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".nav button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const sec = btn.dataset.section;
+      renderSection(sec);
+    });
+  });
+
+  mainPanel.addEventListener("click", e => {
+    const toggle = e.target.closest("[data-toggle-status]");
+    if (!toggle) return;
+    const id = toggle.getAttribute("data-toggle-status");
+    const mod = modules.find(m => m.id === id);
+    if (!mod) return;
+    mod.status = mod.status === "done" ? "todo" : "done";
+    // Re-render current section to update pills
+    const active = document.querySelector(".nav button.active")?.dataset.section || "digital";
+    renderSection(active);
+  });
+
+  // --- INITIAL RENDER ---
+  renderSection("digital");
+</script>
+</body>
+</html>
